@@ -9,11 +9,11 @@
     <!-- Signature Preview -->
     <section class='grid grid-cols-3 gap-4'>
       <div class='col-span-1'>
-        <div class='card bg-base-100 w-full shadow-xl h-96'>
+        <div class='card bg-base-100 w-full shadow-xl h-80'>
           <div class='card-body'>
             <div class='flex flex-col text-left' ref='copyContent'>
               <!-- Image -->
-              <NuxtImg :src=signature.img width='100px' />
+              <img :src=signature.img alt="Signature image" width='100px'>
               <!-- Name -->
               <p>{{ signature.name }}</p>
               <!-- Title -->
@@ -32,17 +32,15 @@
       </div>
 
       <div class='col-span-2'>
-        <div class='card bg-base-100 w-full shadow-xl p-5 space-y-4 h-96'>
+        <div class='card bg-base-100 w-full shadow-xl p-5 space-y-4 h-80'>
           <div class='flex justify-between'>
             <div class='card-title'>HTML result</div>
             <button class='btn btn-primary' @click='copyClipboard'>Copy to clipboard</button>
           </div>
-          <div class='card-body bg-base-300 rounded-xl overflow-scroll'>
-
+          <div class='p-4 bg-base-300 rounded-xl overflow-scroll'>
             <div class=" overflow-scroll">
               {{ copyData }}
             </div>
-
           </div>
         </div>
       </div>
@@ -54,7 +52,6 @@
         <h2 class='card-title'>Change Signature Information</h2>
         <div class='card-body'>
           <div class='grid grid-cols-3 gap-8'>
-            <!-- TODO Upload Image -->
             <signature-input id='signature_img_src' title='Image source' type='text'
               v-model='signature.img'></signature-input>
 
@@ -102,7 +99,8 @@ export default {
   data() {
     return {
       signature: {
-        img: '/signature.png',
+        // img: '/signature.png',
+        img: 'https://picsum.photos/id/237/400',
         name: 'John Doe',
         title: 'Accountant',
         company: 'Avocado Company',
